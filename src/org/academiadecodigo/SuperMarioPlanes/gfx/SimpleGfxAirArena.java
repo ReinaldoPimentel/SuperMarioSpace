@@ -2,15 +2,14 @@ package org.academiadecodigo.SuperMarioPlanes.gfx;
 
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxAirArena implements AirArena {
 
-    public static final int PADDING = 10;
 
     private int width;
     private int height;
-    private Rectangle AirField;
+    private Picture airField;
 
     public SimpleGfxAirArena(int width, int height){
         this.width = width;
@@ -19,18 +18,24 @@ public class SimpleGfxAirArena implements AirArena {
 
     @Override
     public void init() {
-        this.AirField = new Rectangle(PADDING,PADDING, width, height);
-        this.AirField.draw();
+        airField = new Picture(0,0, "resources/map1.png");
+        airField.draw();
+        airField.translate(0, -3000);
+
+    }
+
+    public void move() {
+        airField.translate(0, 2);
     }
 
     @Override
     public int getWidth() {
-        return AirField.getWidth();
+        return airField.getWidth();
     }
 
     @Override
     public int getHeight() {
-        return AirField.getHeight();
+        return airField.getHeight();
     }
 
     @Override
@@ -39,11 +44,11 @@ public class SimpleGfxAirArena implements AirArena {
     }
 
     public int getX() {
-        return this.AirField.getX();
+        return this.airField.getX();
     }
 
     public int getY() {
-        return this.AirField.getY();
+        return this.airField.getY();
     }
 
 }
