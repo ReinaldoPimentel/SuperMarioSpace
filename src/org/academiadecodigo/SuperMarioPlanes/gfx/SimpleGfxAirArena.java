@@ -2,7 +2,7 @@ package org.academiadecodigo.SuperMarioPlanes.gfx;
 
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.simplegraphics.pictures.*;
 
 public class SimpleGfxAirArena implements AirArena {
 

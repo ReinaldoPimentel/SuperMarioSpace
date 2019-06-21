@@ -4,18 +4,14 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionPath;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.EnemyFlyPath;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
 
-import java.awt.*;
 
-public class PositionAndMovimentOnSimpleGfxAirArena extends AbstractPosition {
+public class PositionAndMovementOnSimpleGfxAirArena extends AbstractPosition {
 
-    private Rectangle rectangle;
     private SimpleGfxAirArena simpleGfxAirArena;
 
-    public PositionAndMovimentOnSimpleGfxAirArena(int x, int y, SimpleGfxAirArena simpleGfxAirArena){
-        super(x,y,simpleGfxAirArena);
+    public PositionAndMovementOnSimpleGfxAirArena(int x, int y, SimpleGfxAirArena simpleGfxAirArena) {
+        super(x, y, simpleGfxAirArena);
     }
-
-
 
 
     @Override
@@ -40,16 +36,33 @@ public class PositionAndMovimentOnSimpleGfxAirArena extends AbstractPosition {
 
     }
 
-    @Override
-    public void move(EnemyFlyPath path){
+    public void move(EnemyFlyPath path) {
 
         //TODO: programmed movement to follow relative positions directly to translate method.
+
+        switch (path) {
+            case STRAIGHTDOWN:
+                setPos(getX(), getY() + path.getTranslation());
+                break;
+
+            default:
+                setPos(getX(), getY());
+        }
 
     }
 
-    public void move(MunitionPath path){
+    public void move(MunitionPath path) {
 
         //TODO: programmed movement to follow relative positions directly to translate method.
+
+        switch (path) {
+            case STRAIGHTDOWN:
+                setPos(getX(),getY()+path.getTranslation());
+                break;
+
+            case STRAIGHTUP:
+                setPos(getX(), getY()-path.getTranslation());
+        }
 
     }
 }

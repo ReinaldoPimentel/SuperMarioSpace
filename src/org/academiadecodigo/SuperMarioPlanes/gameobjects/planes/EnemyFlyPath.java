@@ -1,22 +1,15 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 public enum EnemyFlyPath {
-    STRAIGHT(new int[]{1},new int []{1});
+    STRAIGHTDOWN(10);
 
-    private int[] xRatio;
-    private int[] yRatio;
+    private int translation;
 
-    EnemyFlyPath(int[] xRatio, int[] yRatio){
-        this.xRatio = xRatio;
-        this.yRatio = yRatio;
+    EnemyFlyPath(int translation){
+        this.translation = translation;
     }
 
-    public int[] getXRatio(){
-        return xRatio;
+    public int getTranslation() {
+        return translation;
     }
-
-    public int[] getYRatio(){
-        return yRatio;
-    }
-
 }
