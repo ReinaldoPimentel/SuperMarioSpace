@@ -3,20 +3,21 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.Killable;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
 import org.academiadecodigo.SuperMarioPlanes.gfx.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Plane extends GameObject implements Killable {
+
     private int health = 1;
     private boolean dead = false;
-    private AirArena airArena;
+    //private AirArena airArena;
     private Picture image;
 
-    protected Position currentDirection;
+    protected AbstractPosition currentDirection;
 
 
-    public Plane(Position position){
+    public Plane(AbstractPosition position){
         super(position);
     }
 
@@ -28,7 +29,7 @@ public class Plane extends GameObject implements Killable {
     }
 
     public void explosion() {
-        Picture bum = new Picture(0,0, "fireball.png");
+        Picture bum = new Picture(0,0, "resources/fireball.png");
         bum.draw();
     }
 
@@ -53,11 +54,11 @@ public class Plane extends GameObject implements Killable {
     public void shoot(){
     MunitionFactory.getNewMunition(super.getPosition(),this);
     }
-
+/*
     public void setAirArena(AirArena arena){
         airArena = arena;
     }
-
+*/
     public int getHealth() {
         return health;
     }

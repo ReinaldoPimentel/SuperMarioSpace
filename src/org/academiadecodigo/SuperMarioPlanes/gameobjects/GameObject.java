@@ -1,30 +1,33 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects;
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
 
 public abstract class GameObject {
-    private Position hitArea;
-    private Position position;
+    private AbstractPosition hitArea;
+    private AbstractPosition position;
     private String message;
     private int width;
     private int height;
 
-    public GameObject(Position position, int width, int height){
+    public GameObject(AbstractPosition position, int width, int height){
         this.width = width;
         this.height = height;
         this.position = position;
     }
 
-    public Position getHitPosition(){
+    public GameObject(AbstractPosition position){
+        this.position = position;
+    }
 
-
+    public AbstractPosition getHitPosition(){
+        return null;
     }
 
     public String getMessage() {
         return this.message;
     }
 
-    public Position getPosition(){
+    public AbstractPosition getPosition(){
         return this.position;
     }
 }

@@ -4,34 +4,28 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPositi
 
 import java.awt.*;
 
-public class PositionAndMovementOnSimpleGfxAirArena extends AbstractPosition {
+public class PositionAndMovementOnSimpleGfxAirArena{
 
     private Rectangle rectangle;
     private SimpleGfxAirArena simpleGfxAirArena;
 
-    public PositionAndMovementOnSimpleGfxAirArena(int x, int y, SimpleGfxAirArena simpleGfxAirArena){
-        super(x,y,simpleGfxAirArena);
-    }
 
 
 
 
-    @Override
+
     public int getX() {
         return 0;
     }
 
-    @Override
     public int getY() {
         return 0;
     }
 
-    @Override
     public void setPos(int x, int y) {
 
     }
 
-    @Override
     public void move() {
 
     }

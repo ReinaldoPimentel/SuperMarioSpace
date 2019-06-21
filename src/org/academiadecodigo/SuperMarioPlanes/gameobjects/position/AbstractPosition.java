@@ -1,25 +1,29 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.position;
 
-import org.academiadecodigo.SuperMarioPlanes.gfx.*;
+public abstract class AbstractPosition{
 
-public abstract class AbstractPosition implements Position{
+    private int x;
+    private int y;
 
-    private int xStartPosition;
-    private int yStartPosition;
-    private AirArena airArena;
 
-    public AbstractPosition(int xStartPosition, int yStartPosition, AirArena arena) {
-        this.xStartPosition = xStartPosition;
-        this.yStartPosition = yStartPosition;
-        airArena = arena;
+    public AbstractPosition(int xStartPosition, int yStartPosition) {
+        this.x = xStartPosition;
+        this.y = yStartPosition;
     }
 
-    public AirArena getAirArena(){
-        return airArena;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public void setPosition(int xStartPosition, int yStartPosition){
-        this.xStartPosition = xStartPosition;
-        this.yStartPosition = yStartPosition;
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }

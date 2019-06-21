@@ -14,11 +14,11 @@ public class PlaneFactory {
 
         EnemyType enemyType = EnemyType.values()[rng];
 
-        EnemyFlyPath enemyFlyPath = EnemyFlyPath.STRAIGHT;
+        EnemyFlyPath enemyFlyPath = EnemyFlyPath.STRAIGHTDOWN;
 
-        Plane enemyPlane = new EnemyPlane(enemyType, enemyFlyPath, initPlanePos);
+        //Plane enemyPlane = new EnemyPlane(enemyType, enemyFlyPath, initPlanePos);
 
-        return enemyPlane;
+        return null;
     }
     
 }

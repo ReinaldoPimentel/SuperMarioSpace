@@ -1,15 +1,11 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 /*
 public class PlayerPlane extends Plane {
 
     private Keyboard keyboard;
 
-    public PlayerPlane(Position position){
+    public PlayerPlane(AbstractPosition position){
         super(position);
         keyboard = new Keyboard(this);
         init();

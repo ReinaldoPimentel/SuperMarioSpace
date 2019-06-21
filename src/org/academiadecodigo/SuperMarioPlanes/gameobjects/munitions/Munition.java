@@ -1,12 +1,12 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
 
 public class Munition extends GameObject {
     private MunitionType munitionType;
 
-    public Munition(Position position, MunitionType munitionType, MunitionPath munitionPath){
+    public Munition(AbstractPosition position, MunitionType munitionType, MunitionPath munitionPath){
         super(position);
         this.munitionType = munitionType;
     }
