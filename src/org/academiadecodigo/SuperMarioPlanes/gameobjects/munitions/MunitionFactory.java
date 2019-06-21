@@ -20,10 +20,6 @@ public class MunitionFactory {
 
         MunitionType munitionType = MunitionType.values()[rng];
 
-        // Position bulletPosition = new PositionAndMovementOnSimpleGfxAirArena(planePosition.getX(), planePosition.getY(), planePosition); // posiçao do aviao
-
-        //munitionType.getImpact();
-
         MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
 
         Munition ammo = new Munition(planePosition, munitionType, munitionPath);
