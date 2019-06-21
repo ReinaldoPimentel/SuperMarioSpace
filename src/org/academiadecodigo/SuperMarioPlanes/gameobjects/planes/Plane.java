@@ -6,14 +6,13 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.*;
 
 public class Plane extends GameObject implements Killable {
-    private int health;
-    private boolean dead;
+    private int health = 1;
+    private boolean dead = false;
     private AirArena airArena;
 
 
-    public Plane(int health, Position position){
+    public Plane(Position position){
         super(position);
-        this.health = health;
     }
 
     @Override
