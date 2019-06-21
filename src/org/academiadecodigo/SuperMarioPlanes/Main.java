@@ -4,7 +4,7 @@ import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class Main {
     public static void main(String[] args) {
-        SimpleGfxAirArena arena = new SimpleGfxAirArena(600, 800);
+        SimpleGfxAirArena arena = new SimpleGfxAirArena();
         arena.init();
 
         try {

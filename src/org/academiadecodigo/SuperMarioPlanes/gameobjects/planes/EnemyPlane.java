@@ -10,7 +10,7 @@ public class EnemyPlane extends Plane {
     private Position position;
 
     public EnemyPlane(EnemyType enemyType, EnemyFlyPath enemyFlyPath, Position position){
-        super(enemyType.getHealth(),position);
+        super(position);
         this.enemyType = enemyType;
         this.enemyFlyPath = enemyFlyPath;
         this.position = position;
