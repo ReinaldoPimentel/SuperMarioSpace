@@ -6,22 +6,13 @@ import org.academiadecodigo.simplegraphics.pictures.*;
 
 public class SimpleGfxAirArena implements AirArena {
 
-
-    private int width;
-    private int height;
     private Picture airField;
-
-    public SimpleGfxAirArena(int width, int height){
-        this.width = width;
-        this.height = height;
-    }
 
     @Override
     public void init() {
         airField = new Picture(0,0, "resources/map1.png");
         airField.draw();
         airField.translate(0, -3000);
-
     }
 
     public void move() {
