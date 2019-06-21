@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="supermarioplanes">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/supermarioplanes.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
