@@ -2,6 +2,7 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.Killable;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.*;
 
@@ -27,7 +28,7 @@ public class Plane extends GameObject implements Killable {
     }
 
     public void shoot(){
-
+    MunitionFactory.getNewMunition(super.getPosition(),this);
     }
 
     public void setAirArena(AirArena arena){

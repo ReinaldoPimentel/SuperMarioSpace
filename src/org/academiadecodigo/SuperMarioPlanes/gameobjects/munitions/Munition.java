@@ -6,7 +6,7 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 public class Munition extends GameObject {
     private MunitionType munitionType;
 
-    public Munition(Position position, MunitionType munitionType){
+    public Munition(Position position, MunitionType munitionType, MunitionPath munitionPath){
         super(position);
         this.munitionType = munitionType;
     }
