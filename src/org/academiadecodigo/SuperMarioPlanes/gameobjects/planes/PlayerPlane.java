@@ -4,7 +4,7 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-
+/*
 public class PlayerPlane extends Plane {
 
     private Keyboard keyboard;
@@ -69,3 +69,5 @@ public class PlayerPlane extends Plane {
     }
 
 }
+
+*/
