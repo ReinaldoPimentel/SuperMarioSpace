@@ -40,7 +40,7 @@ public class SimpleGfxAirArena implements AirArena {
 
     @Override
     public Position makeScreenPosition(int x, int y) {
-        return new PositionAndMovimentOnSimpleGfxAirArena(x, y, this);
+        return new PositionAndMovementOnSimpleGfxAirArena(x, y, this);
     }
 
     public int getX() {
