@@ -31,4 +31,12 @@ public abstract class GameObject {
     public Position getPosition(){
         return this.position;
     }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }

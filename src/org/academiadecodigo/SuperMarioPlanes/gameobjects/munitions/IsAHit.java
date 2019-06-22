@@ -9,19 +9,19 @@ public abstract class IsAHit {
        int totalWidthOfObjs;
        int heightOfImplementation;
        int widthOfImplementation;
-       int xOfObj1 = obj1.getPosition().getX();
-       int yOfObj1 = obj1.getPosition().getY();
-       int xMaxOfObj1 = xOfObj1 + obj1.getWidth;
-       int yMaxOfObj1 = yOfObj1 + obj1.getHeight;
+       int xOfObj1 = obj1.getPosition().getCol();
+       int yOfObj1 = obj1.getPosition().getRow();
+       int xMaxOfObj1 = xOfObj1 + obj1.getWidth();
+       int yMaxOfObj1 = yOfObj1 + obj1.getHeight();
        int widthOfObj1 = xMaxOfObj1 - xOfObj1;
        int heightOfObj1 = yMaxOfObj1 - yOfObj1;
 
        for (GameObject obj2 : objects){
 
-           int xOfObj2 = obj2.getPosition().getX();
-           int yOfObj2 = obj2.getPosition().getY();
-           int xMaxOfObj2 = xOfObj2 + obj2.getWidth;
-           int yMaxOfObj2 = yOfObj2 + obj2.getHeight;
+           int xOfObj2 = obj2.getPosition().getCol();
+           int yOfObj2 = obj2.getPosition().getRow();
+           int xMaxOfObj2 = xOfObj2 + obj2.getWidth();
+           int yMaxOfObj2 = yOfObj2 + obj2.getHeight();
 
            int widthOfObj2 = xMaxOfObj2 - xOfObj2;
            int heightOfObj2 = yMaxOfObj2 - yOfObj2;
@@ -36,7 +36,7 @@ public abstract class IsAHit {
        }
 
 
-
        return false;
    }
+
 }

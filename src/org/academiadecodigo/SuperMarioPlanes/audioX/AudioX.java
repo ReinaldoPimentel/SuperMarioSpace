@@ -1,16 +1,16 @@
 package org.academiadecodigo.SuperMarioPlanes.audioX;
 
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.concurrent.TimeUnit;
 
 public class AudioX {
-   /* public static void main(String[] args) {
+   public static void main(String[] args) {
         playMusic(".//res//SuperMarioBros.wav");
-        try {
+       /* try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -28,8 +28,8 @@ public class AudioX {
         playMusic(".//res//smb3_fireball.wav");
         playMusic(".//res//smb3_kick.wav");
         playMusic(".//res//smb3_kick.wav");
-        playMusic(".//res//smb3_kick.wav");
-    }*/
+        playMusic(".//res//smb3_kick.wav");*/
+    }
 
     public static void shoot(){
         playMusic(".//res//smb3_fireball.wav");
@@ -42,13 +42,20 @@ public class AudioX {
     public static void playMusic(String filePath) {
 
         InputStream music;
+
         try {
             music = new FileInputStream(new File(filePath));
-            AudioStream sound = new AudioStream(music);
-            AudioPlayer.player.start(sound);
+            Clip clip = AudioSystem.getClip();
+            //AudioStream sound = new AudioStream(music);
+            AudioInputStream ais = AudioSystem.getAudioInputStream(music);
+            clip.open(ais);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+
         } catch (Exception e) {
 
         }
+
+
 
     }
 }
