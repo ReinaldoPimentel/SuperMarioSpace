@@ -3,9 +3,7 @@ package org.academiadecodigo.SuperMarioPlanes.gfx;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.*;
-
-import java.awt.*;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class SimpleGfxAirArena {
 
@@ -42,6 +40,7 @@ public class SimpleGfxAirArena {
     public Position makeGridPosition(int cols, int rows, String image) {
         return new Position(cols, rows, this, image);
     }
+
 
     public int getX() {
         return this.airField.getX();

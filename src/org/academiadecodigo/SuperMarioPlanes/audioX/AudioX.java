@@ -1,16 +1,9 @@
 package org.academiadecodigo.SuperMarioPlanes.audioX;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 public class AudioX {
-   public static void main(String[] args) {
+ /*  public static void main(String[] args) {
         playMusic(".//res//SuperMarioBros.wav");
-       /* try {
+        try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -28,7 +21,7 @@ public class AudioX {
         playMusic(".//res//smb3_fireball.wav");
         playMusic(".//res//smb3_kick.wav");
         playMusic(".//res//smb3_kick.wav");
-        playMusic(".//res//smb3_kick.wav");*/
+        playMusic(".//res//smb3_kick.wav");
     }
 
     public static void shoot(){
@@ -57,5 +50,5 @@ public class AudioX {
 
 
 
-    }
+    }*/
 }

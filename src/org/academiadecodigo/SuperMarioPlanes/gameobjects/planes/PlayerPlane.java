@@ -1,7 +1,6 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
@@ -10,7 +9,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-public class PlayerPlane implements KeyboardHandler {
+public class PlayerPlane extends Plane implements KeyboardHandler {
 
     private Keyboard keyboard;
     private int speed = 1;
@@ -20,6 +19,7 @@ public class PlayerPlane implements KeyboardHandler {
     private Directions direction;
 
     public PlayerPlane(SimpleGfxAirArena grid, Position pos){
+        super(pos);
         this.pos = pos;
         this.grid = grid;
         keyboard = new Keyboard(this);
@@ -142,6 +142,10 @@ public class PlayerPlane implements KeyboardHandler {
                 //pos.moveInDirection(Directions.DOWN, speed);
                 break;
         }
+    }
+
+    public SimpleGfxAirArena getGrid() {
+        return grid;
     }
 
     public void move() {

@@ -20,6 +20,14 @@ public class Position {
 
     }
 
+    public int getImageWidth(){
+        return image.getWidth();
+    }
+
+    public int getImageHeigth() {
+        return image.getHeight();
+    }
+
     public void moveInDirection(Directions direction, int dist) {
 
         int prevColX = grid.colToX(col);

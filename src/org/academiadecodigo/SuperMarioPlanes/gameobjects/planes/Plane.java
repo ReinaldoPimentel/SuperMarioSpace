@@ -2,9 +2,7 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.Killable;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
-import org.academiadecodigo.SuperMarioPlanes.gfx.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Plane extends GameObject implements Killable {
@@ -17,8 +15,8 @@ public class Plane extends GameObject implements Killable {
     protected Position currentDirection;
 
 
-    public Plane(){
-        super();
+    public Plane(Position pos){
+        super(pos);
     }
 
     public void crash() {

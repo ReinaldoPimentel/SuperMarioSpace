@@ -18,6 +18,8 @@ public abstract class GameObject {
 
     public GameObject(Position position){
         this.position = position;
+        this.width = position.getImageWidth();
+        this.height = position.getImageHeigth();
     }
 
     public Position getHitPosition(){
