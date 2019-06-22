@@ -25,7 +25,7 @@ public class Main {
 
         Position startPoint = b.getPosition();
 
-      //  Munition munition = new Munition(arena, startPoint, MunitionType.FIREBALL, Directions.UP);
+      // Munition munition = new Munition(arena, startPoint, MunitionType.FIREBALL, Directions.UP);
 
 
         while (true) {
