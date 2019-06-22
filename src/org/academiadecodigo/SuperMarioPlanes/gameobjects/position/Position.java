@@ -20,6 +20,10 @@ public class Position {
 
     }
 
+    public Picture getImage(){
+        return image;
+    }
+
     public int getImageWidth(){
         return image.getWidth();
     }

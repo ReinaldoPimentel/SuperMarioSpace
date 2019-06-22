@@ -3,9 +3,9 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject {
+    private boolean Hide;
     private Position position;
     private int X;
     private int Y;
@@ -13,7 +13,7 @@ public abstract class GameObject {
     private int width;
     private int height;
     private SimpleGfxAirArena grid;
-    private Picture image;
+    //private Picture image;
 
 
     public GameObject(){
@@ -63,7 +63,16 @@ public abstract class GameObject {
         return Y;
     }
 
-    public Picture getImage() {
-        return image;
+    public void hide(){
+        Hide = true;
+        position.getImage().delete();
     }
+
+    public boolean isHide() {
+        return Hide;
+    }
+
+    /* public Picture getImage() {
+        return image;
+    }*/
 }

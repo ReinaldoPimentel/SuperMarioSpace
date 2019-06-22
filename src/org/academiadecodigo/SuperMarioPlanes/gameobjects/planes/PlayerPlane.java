@@ -1,7 +1,6 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.Munition;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
@@ -16,6 +15,7 @@ public class PlayerPlane extends Plane implements KeyboardHandler {
     private int speed = 1;
     private boolean moving = false;
     private Directions direction;
+    //private boolean fired;
 
     public PlayerPlane(SimpleGfxAirArena grid, Position pos){
         super(grid, pos);
@@ -80,16 +80,29 @@ public class PlayerPlane extends Plane implements KeyboardHandler {
     }
 
     @Override
-    public Munition shoot(){
-        return super.shoot();
+    public void shoot(){
+        super.shoot();
 
     }
+
+    /*private void fired(){
+        fired = true;
+    }
+
+    public boolean hasFired() {
+        return fired;
+    }
+
+    public void reset_fired(){
+        fired = false;
+    }*/
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
 
         if (keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE) {
             shoot();
+            super.fired();
             return;
         }
 
