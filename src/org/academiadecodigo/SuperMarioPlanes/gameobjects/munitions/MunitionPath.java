@@ -1,9 +1,8 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions;
 
 public enum MunitionPath {
-    STRAIGHTDOWN(10),
-    STRAIGHTUP(20),
-    TOTARGET(10);
+    DOWN(10),
+    UP(20);
 
     private int translation;
 

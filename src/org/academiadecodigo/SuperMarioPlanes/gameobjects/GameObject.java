@@ -2,24 +2,33 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects;
 
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject {
-    private Position hitArea;
     private Position position;
+    private int X;
+    private int Y;
     private String message;
     private int width;
     private int height;
+    private SimpleGfxAirArena grid;
+    private Picture image;
+
 
     public GameObject(){
-        this.width = width;
-        this.height = height;
-        this.position = position;
+        width = width;
+        height = height;
+        position = position;
     }
 
-    public GameObject(Position position){
+    public GameObject(SimpleGfxAirArena grid, Position position){
         this.position = position;
+        this.X = position.getCol();
+        this.Y = position.getRow();
         this.width = position.getImageWidth();
         this.height = position.getImageHeigth();
+        this.grid = grid;
     }
 
     public Position getHitPosition(){
@@ -31,7 +40,11 @@ public abstract class GameObject {
     }
 
     public Position getPosition(){
-        return this.position;
+        return position;
+    }
+
+    public SimpleGfxAirArena getGrid(){
+        return grid;
     }
 
     public int getWidth(){
@@ -40,5 +53,17 @@ public abstract class GameObject {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getX() {
+        return X;
+    }
+
+    public int getY() {
+        return Y;
+    }
+
+    public Picture getImage() {
+        return image;
     }
 }

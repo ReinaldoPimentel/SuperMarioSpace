@@ -1,6 +1,7 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.Munition;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
@@ -13,15 +14,11 @@ public class PlayerPlane extends Plane implements KeyboardHandler {
 
     private Keyboard keyboard;
     private int speed = 1;
-    private Position pos;
     private boolean moving = false;
-    private SimpleGfxAirArena grid;
     private Directions direction;
 
     public PlayerPlane(SimpleGfxAirArena grid, Position pos){
-        super(pos);
-        this.pos = pos;
-        this.grid = grid;
+        super(grid, pos);
         keyboard = new Keyboard(this);
         init();
 
@@ -82,8 +79,9 @@ public class PlayerPlane extends Plane implements KeyboardHandler {
 
     }
 
-    public void shoot(){
-        //MunitionFactory.getNewMunition(pos, this);
+    @Override
+    public Munition shoot(){
+        return super.shoot();
 
     }
 
@@ -144,12 +142,12 @@ public class PlayerPlane extends Plane implements KeyboardHandler {
         }
     }
 
-    public SimpleGfxAirArena getGrid() {
+  /*  public SimpleGfxAirArena getGrid() {
         return grid;
-    }
+    }*/
 
     public void move() {
-        pos.moveInDirection(direction, speed);
+        super.getPosition().moveInDirection(direction, speed);
     }
 
     public boolean isMoving() {

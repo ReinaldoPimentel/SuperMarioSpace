@@ -2,7 +2,7 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.EnemyPlane;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.Plane;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
@@ -13,25 +13,29 @@ public class MunitionFactory {
 
     }
 
-    public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Object obj) {
+    public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Plane plane) {
+
+        int bulletCol = planePosition.getCol() + 4;
+        int bulletRow = planePosition.getRow() - 1;
 
         int rng = (int) (Math.random() * MunitionType.values().length);
 
         MunitionType munitionType = MunitionType.values()[rng];
 
-        //MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
+       // MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
 
-        //Munition ammo = new Munition(arena, planePosition, obj);
 
-        return null;
+        Munition ammo = new Munition(arena, arena.makeGridPosition(bulletCol, bulletRow, "resources/fireball.png"), munitionType, choosePath(plane));
+        ammo.move();
+        return ammo;
 
     }
 
-    private static MunitionPath choosePath(Object plane) {
+    private static Directions choosePath(Object plane) {
         if (plane instanceof EnemyPlane) {
-            return MunitionPath.STRAIGHTDOWN;
+            return Directions.DOWN;
         }
-        return MunitionPath.STRAIGHTUP;
+        return Directions.UP;
     }
 
 }
