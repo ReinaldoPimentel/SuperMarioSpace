@@ -1,25 +1,26 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects;
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
+
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 
 public abstract class GameObject {
-    private AbstractPosition hitArea;
-    private AbstractPosition position;
+    private Position hitArea;
+    private Position position;
     private String message;
     private int width;
     private int height;
 
-    public GameObject(AbstractPosition position, int width, int height){
+    public GameObject(){
         this.width = width;
         this.height = height;
         this.position = position;
     }
 
-    public GameObject(AbstractPosition position){
+    public GameObject(Position position){
         this.position = position;
     }
 
-    public AbstractPosition getHitPosition(){
+    public Position getHitPosition(){
         return null;
     }
 
@@ -27,7 +28,7 @@ public abstract class GameObject {
         return this.message;
     }
 
-    public AbstractPosition getPosition(){
+    public Position getPosition(){
         return this.position;
     }
 }

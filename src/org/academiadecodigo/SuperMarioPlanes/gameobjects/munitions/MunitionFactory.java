@@ -2,8 +2,9 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.EnemyPlane;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.Plane;
-//import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class MunitionFactory {
 
@@ -12,20 +13,21 @@ public class MunitionFactory {
 
     }
 
-    public static Munition getNewMunition(AbstractPosition planePosition, Plane plane) {
+    public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Object obj) {
 
         int rng = (int) (Math.random() * MunitionType.values().length);
 
         MunitionType munitionType = MunitionType.values()[rng];
 
-        MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
+        //MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
 
-        Munition ammo = new Munition(planePosition, munitionType, munitionPath);
-        return ammo;
+        //Munition ammo = new Munition(arena, planePosition, obj);
+
+        return null;
 
     }
 
-    private MunitionPath choosePath(Plane plane) {
+    private static MunitionPath choosePath(Object plane) {
         if (plane instanceof EnemyPlane) {
             return MunitionPath.STRAIGHTDOWN;
         }

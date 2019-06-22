@@ -1,6 +1,5 @@
 package org.academiadecodigo.SuperMarioPlanes.gfx;
 
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.AbstractPosition;
 
 import java.awt.*;
 
