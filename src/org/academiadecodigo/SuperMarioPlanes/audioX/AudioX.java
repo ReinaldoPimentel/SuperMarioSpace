@@ -9,7 +9,8 @@ import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 public class AudioX {
-   public static void main(String[] args) {
+
+    public void playSong() {
         playMusic(".//res//SuperMarioBros.wav");
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -50,7 +51,7 @@ public class AudioX {
             //AudioStream sound = new AudioStream(music);
             AudioInputStream  ais = AudioSystem.getAudioInputStream(music);
             clip.open(ais);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            //clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         } catch (Exception e) {
 

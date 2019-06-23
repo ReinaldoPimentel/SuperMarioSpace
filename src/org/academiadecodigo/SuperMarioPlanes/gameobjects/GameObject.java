@@ -74,9 +74,20 @@ public abstract class GameObject {
         return Hide;
     }
 
-    public void explosion() {
-        Picture bum = new Picture(0,0, "resources/bumbum.png");
+    public void explosion(int col, int row) {
+        Picture bum = new Picture(col,row, "resources/bumbum.png");
         bum.draw();
+        try {
+            Thread.sleep(100);
+            bum.delete();
+        } catch (InterruptedException e) {
+        }
+
+
+    }
+
+    public void endExplosion() {
+
     }
     /* public Picture getImage() {
         return image;
