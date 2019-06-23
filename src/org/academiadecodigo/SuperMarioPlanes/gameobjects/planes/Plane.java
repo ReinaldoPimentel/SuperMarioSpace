@@ -48,6 +48,10 @@ public class Plane extends GameObject implements Killable {
         return dead;
     }
 
+    public void setDead() {
+        dead = true;
+    }
+
     public void shoot(){
         fired();
     }

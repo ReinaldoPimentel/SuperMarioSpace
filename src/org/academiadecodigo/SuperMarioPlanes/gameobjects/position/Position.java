@@ -20,11 +20,11 @@ public class Position {
 
     }
 
-    public Picture getImage(){
+    public Picture getImage() {
         return image;
     }
 
-    public int getImageWidth(){
+    public int getImageWidth() {
         return image.getWidth();
     }
 
@@ -40,6 +40,9 @@ public class Position {
         switch (direction) {
             case UP:
                 moveUp(dist);
+                break;
+            case UP_BULLET:
+                moveUpBullet(dist);
                 break;
             case DOWN:
                 moveDown(dist);
@@ -68,6 +71,11 @@ public class Position {
         }
     }
 
+    private void moveUpBullet(int dist) {
+        setPos(getCol(), getRow() - dist );
+    }
+
+
     private void moveDown(int dist) {
         if (getRow() < 70) {
             //int maxRowsDown = Math.min(getGrid().getRows() - (pos.getRow() + 1),dist);
@@ -76,11 +84,11 @@ public class Position {
     }
 
     private void moveDownEnemy(int dist) {
-
-            //int maxRowsDown = Math.min(getGrid().getRows() - (pos.getRow() + 1),dist);
-            setPos(getCol(), getRow() + dist);
+        //int maxRowsDown = Math.min(getGrid().getRows() - (pos.getRow() + 1),dist);
+        setPos(getCol() + dist , getRow() + dist);
 
     }
+
     private void moveLeft(int dist) {
         if (getCol() > 0) {
             //int maxRowsLeft = Math.min(dist,pos.getCol());
