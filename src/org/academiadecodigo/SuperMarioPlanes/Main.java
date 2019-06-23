@@ -1,5 +1,6 @@
 package org.academiadecodigo.SuperMarioPlanes;
 
+import org.academiadecodigo.SuperMarioPlanes.audioX.AudioX;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.IsAHit;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.Munition;
@@ -11,6 +12,7 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 
 import java.util.LinkedList;
 
@@ -21,6 +23,11 @@ public class Main {
         arena.init();
         PlayerPlane b = new PlayerPlane(arena, arena.makeGridPosition(25, 65, "resources/plani.png"));
         //EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/Enemy.png"), Directions.DOWN);
+        AudioX audio = new AudioX();
+        int counter = 0;
+
+
+
 
 
         IsAHit isThereAColission = new IsAHit();
@@ -36,7 +43,7 @@ public class Main {
 
         Position startPoint = b.getPosition();
 
-        int counter = 0;
+
 
         while (!b.isDead()) {
 
@@ -67,6 +74,7 @@ public class Main {
                         if (!object.isHide()) {
                             object.move();
                         } else {
+
                             isToRemove = true;
                         }
 
@@ -77,6 +85,7 @@ public class Main {
                         // PARA ELIMINAR AS BARRAS DE COMENTARIO
                         if (object.isHide()) {
                             b.setDead();
+                            object.explosion(object.getPosition().getCol() * 10, object.getPosition().getRow() * 10 );
                         }
                     }
 
@@ -88,11 +97,14 @@ public class Main {
                                 object.move();
                                 if (object.getPosition().getRow() >= 0) {
                                     object.shoot();
+
                                     System.out.println(object.isDead());
                                 }
                             }else {
                                     if (object.getPosition().getRow() >= 0) {
+                                        object.explosion(object.getPosition().getCol() * 10, object.getPosition().getRow() * 10 );
                                      counter += 1;
+
                                     }
                                     System.out.println("is dead");
                                     isToRemove = true;
@@ -141,6 +153,12 @@ public class Main {
 
         }
         System.out.println("fuck you --> score: " + counter);
+        Text over = new Text(50, 20, "GAME OVER!!!");
+        over.grow(100, 100);
+        Text score = new Text(200, 500, "Score: " + counter);
+        over.draw();
+        score.draw();
+
     }
 
 }

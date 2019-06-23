@@ -54,6 +54,7 @@ public class Plane extends GameObject implements Killable {
 
     public void shoot(){
         fired();
+
     }
 
 
