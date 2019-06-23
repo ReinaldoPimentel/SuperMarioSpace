@@ -18,9 +18,9 @@ public class SimpleGfxAirArena {
     public void init() {
         base = new Rectangle(0,0,600,800);
         base.draw();
-        airField = new Picture(0,0, "resources/map1.png");
+        airField = new Picture(0,0, "resources/1.jpg");
         airField.draw();
-        airField.translate(0, -3000);
+        airField.translate(0, -2000);
     }
 
     public void move() {
