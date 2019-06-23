@@ -36,14 +36,15 @@ public class Main {
 
         Position startPoint = b.getPosition();
 
+        int counter = 0;
 
-        while (true) {
+        while (!b.isDead()) {
 
             try {
                 Thread.sleep(40);
                 arena.move();
 
-                if (Math.random() < 0.09) {
+                if (Math.random() < 0.05) {
 
                     EnemyPlane enemy = PlaneFactory.getNewPlane(arena);
 
@@ -71,23 +72,38 @@ public class Main {
 
                     }
 
+                    if (allObjects.get(i) instanceof PlayerPlane) {
+                        PlayerPlane object = (PlayerPlane) allObjects.get(i);
+                        // PARA ELIMINAR AS BARRAS DE COMENTARIO
+                        if (object.isHide()) {
+                            b.setDead();
+                        }
+                    }
+
                     if (allObjects.get(i) instanceof EnemyPlane) {
                         EnemyPlane object = (EnemyPlane) allObjects.get(i);
                         // PARA ELIMINAR AS BARRAS DE COMENTARIO
-                        if (!object.isHide()) {
-                            object.move();
-                            object.shoot();
-                            System.out.println(object.isDead());
-                        } else {
-                            System.out.println("is dead");
-                            isToRemove = true;
-                        }
 
-                        if (object.hasFired()) {
-                            GameObject ammo = MunitionFactory.getNewMunition(object.getGrid(), object.getPosition(), object);
-                            allObjects.add(ammo);
-                            object.reset_fired();
-                        }
+                            if (!object.isHide()) {
+                                object.move();
+                                if (object.getPosition().getRow() >= 0) {
+                                    object.shoot();
+                                    System.out.println(object.isDead());
+                                }
+                            }else {
+                                    if (object.getPosition().getRow() >= 0) {
+                                     counter += 1;
+                                    }
+                                    System.out.println("is dead");
+                                    isToRemove = true;
+
+                            }
+
+                            if (object.hasFired()) {
+                                GameObject ammo = MunitionFactory.getNewMunition(object.getGrid(), object.getPosition(), object);
+                                allObjects.add(ammo);
+                                object.reset_fired();
+                            }
 
                         // PARA ELIMINAR AS BARRAS DO COMENTARIO pois impede o enemy plane de andar!!!!
                         // object.move();
@@ -124,6 +140,7 @@ public class Main {
 
 
         }
+        System.out.println("fuck you --> score: " + counter);
     }
 
 }

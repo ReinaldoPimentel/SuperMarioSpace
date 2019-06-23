@@ -8,22 +8,15 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
 import java.util.LinkedList;
 
 public class IsAHit {
+    boolean Hit = false;
 
     public void detected(LinkedList objects) {
         int totalHeightOfObjs;
         int totalWidthOfObjs;
         int heightOfImplementation;
         int widthOfImplementation;
-        //   int xOfObj1 = obj1.getPosition().getCol();
-        //   int yOfObj1 = obj1.getPosition().getRow();
 
-        //   int xMaxOfObj1 = xOfObj1 + obj1.getPosition().getImageWidth();
-        //   int yMaxOfObj1 = yOfObj1 + obj1.getPosition().getImageHeigth();
 
-        //   int widthOfObj1 = obj1.getPosition().getImageWidth();
-        //   int heightOfObj1 = obj1.getPosition().getImageHeigth();
-
-        //System.out.println(obj1.getWidth());
 
         for (int i = 0; i < objects.size(); i++) {
 
@@ -35,7 +28,6 @@ public class IsAHit {
             for (int j = i + 1; j < objects.size(); j++) {
 
                 GameObject obj2 = (GameObject) objects.get(j);
-                boolean jump = false;
 
                 if (obj1 instanceof Munition && obj2 instanceof PlayerPlane) {
 
@@ -82,10 +74,6 @@ public class IsAHit {
                     }
 
                 }
-/*                if (obj1 instanceof Munition && obj2 instanceof Munition) {
-                    continue;
-                }*/
-
 
                 if (i != j) {
 
@@ -108,26 +96,10 @@ public class IsAHit {
 
                     int totalHeightOfBox = ((mostDown.getPosition().getRow() * 10 + mostUp.getPosition().getImageHeigth()) - mostUp.getPosition().getRow() * 10);
 
-        /*   int xMaxOfObj2 = xOfObj2 + obj2.getPosition().getImageWidth();
-           int yMaxOfObj2 = yOfObj2 + obj2.getPosition().getImageHeigth();
-           //System.out.println("1 " + obj2.getWidth());
-
-           int widthOfObj2 = obj2.getPosition().getImageWidth();
-           int heightOfObj2 = obj2.getPosition().getImageHeigth();
-           //System.out.println(widthOfObj2);
-
-           totalWidthOfObjs = widthOfObj1 + widthOfObj2;
-           totalHeightOfObjs = heightOfObj1 + heightOfObj2;
-
-           widthOfImplementation = (xOfObj2 < xOfObj1 ? xMaxOfObj1 - xOfObj2 : xMaxOfObj2 - xOfObj1);
-           heightOfImplementation = (yOfObj1 < yOfObj2 ? yMaxOfObj2 - yOfObj1 : yMaxOfObj1 - yOfObj2);
-*/
-
-
-                    //  return ((totalWidthOfObjs > widthOfImplementation) && (totalHeightOfObjs > heightOfImplementation));
 
                     if ((totalHeightOfBox < totalHeight && totalWidthOfBox < totalWidth)) {
 
+                        //Hit = true;
                         obj1.hide();
                         // obj1.explosion();
                         obj2.hide();
@@ -140,4 +112,7 @@ public class IsAHit {
 
     }
 
+    public boolean isAHit() {
+        return Hit;
+    }
 }
