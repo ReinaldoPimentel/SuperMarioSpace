@@ -1,7 +1,15 @@
 package org.academiadecodigo.SuperMarioPlanes.audioX;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
+
 public class AudioX {
- /*  public static void main(String[] args) {
+   public static void main(String[] args) {
         playMusic(".//res//SuperMarioBros.wav");
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -40,7 +48,7 @@ public class AudioX {
             music = new FileInputStream(new File(filePath));
             Clip clip = AudioSystem.getClip();
             //AudioStream sound = new AudioStream(music);
-            AudioInputStream ais = AudioSystem.getAudioInputStream(music);
+            AudioInputStream  ais = AudioSystem.getAudioInputStream(music);
             clip.open(ais);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
 
@@ -50,5 +58,5 @@ public class AudioX {
 
 
 
-    }*/
+    }
 }

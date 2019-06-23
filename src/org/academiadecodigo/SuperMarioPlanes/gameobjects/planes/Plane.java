@@ -21,12 +21,12 @@ public class Plane extends GameObject implements Killable {
         super(grid, pos);
     }
 
-    public void crash() {
+    /*public void crash() {
         this.dead = true;
         hide();
         super.explosion();
 
-    }
+    }*/
 
 
     @Override
@@ -46,6 +46,10 @@ public class Plane extends GameObject implements Killable {
     @Override
     public boolean isDead() {
         return dead;
+    }
+
+    public void setDead() {
+        dead = true;
     }
 
     public void shoot(){
@@ -69,8 +73,8 @@ public class Plane extends GameObject implements Killable {
     public void setAirArena(AirArena arena){
         airArena = arena;
     }
-*/
+
     public int getHealth() {
         return health;
-    }
+    }*/
 }
