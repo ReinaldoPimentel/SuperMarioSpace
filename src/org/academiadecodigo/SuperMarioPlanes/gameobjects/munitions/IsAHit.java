@@ -65,7 +65,7 @@ public class IsAHit {
                     Munition ammoObj = (Munition) obj1;
                     EnemyPlane planeObj = (EnemyPlane) obj2;
 
-                    if (planeObj == ammoObj.getPlaneOrigin()) {
+                    if (ammoObj.getPlaneOrigin() instanceof EnemyPlane) {
                         System.out.println("enemy salta");
                         continue;
                     }
@@ -77,14 +77,14 @@ public class IsAHit {
                     Munition ammoObj = (Munition) obj2;
                     EnemyPlane planeObj = (EnemyPlane) obj1;
 
-                    if (planeObj == ammoObj.getPlaneOrigin()) {
+                    if (ammoObj.getPlaneOrigin() instanceof EnemyPlane) {
                         continue;
                     }
 
                 }
-                if (obj1 instanceof Munition && obj2 instanceof Munition) {
+/*                if (obj1 instanceof Munition && obj2 instanceof Munition) {
                     continue;
-                }
+                }*/
 
 
                 if (i != j) {
