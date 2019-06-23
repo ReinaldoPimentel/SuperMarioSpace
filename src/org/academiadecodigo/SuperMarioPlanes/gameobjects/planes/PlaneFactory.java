@@ -14,7 +14,21 @@ public class PlaneFactory {
 
     public static EnemyPlane getNewPlane(SimpleGfxAirArena initPlanePos){
 
-        Position pos = new Position(getInXPos(), row, initPlanePos, "resources/Enemy.png");
+
+
+
+        Position posr = new Position(getInXPos(), row, initPlanePos, "resources/goomba.png");
+        Position img1 = new Position(getInXPos(), row, initPlanePos, "resources/koopa.png");
+        int number = (int) (Math.random() * 2);
+        Position pos;
+        if (number == 0) {
+            pos = posr;
+        } else {
+            pos = img1;
+        }
+
+
+
 
          return new EnemyPlane(initPlanePos, pos, Directions.DOWN_ENEMY);
     }

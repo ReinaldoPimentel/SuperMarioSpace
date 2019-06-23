@@ -19,7 +19,7 @@ public class Main {
 
         SimpleGfxAirArena arena = new SimpleGfxAirArena();
         arena.init();
-        PlayerPlane b = new PlayerPlane(arena, arena.makeGridPosition(25, 65, "resources/plani.png"));
+        PlayerPlane b = new PlayerPlane(arena, arena.makeGridPosition(25, 65, "resources/player1.png"));
         //EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/Enemy.png"), Directions.DOWN);
 
 
