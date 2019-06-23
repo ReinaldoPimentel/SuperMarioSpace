@@ -6,7 +6,7 @@ import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class PlaneFactory {
 
-    private static int row  = 0;
+    private static int row  = -10;
 
     public PlaneFactory(){
 
