@@ -20,7 +20,7 @@ public class Main {
         SimpleGfxAirArena arena = new SimpleGfxAirArena();
         arena.init();
         PlayerPlane b = new PlayerPlane(arena, arena.makeGridPosition(25, 65, "resources/plani.png"));
-       // EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/Enemy.png"), Directions.DOWN);
+        //EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/Enemy.png"), Directions.DOWN);
 
 
         IsAHit isThereAColission = new IsAHit();
@@ -32,7 +32,7 @@ public class Main {
         LinkedList allObjects = new LinkedList();
 
         allObjects.add(b);
-       // allObjects.add(enemyPlane);
+        // allObjects.add(enemyPlane);
 
         Position startPoint = b.getPosition();
 
@@ -43,11 +43,11 @@ public class Main {
                 Thread.sleep(40);
                 arena.move();
 
-                if (Math.random() < 0.1) {
+                if (Math.random() < 0.09) {
 
                     EnemyPlane enemy = PlaneFactory.getNewPlane(arena);
 
-                   allObjects.add(enemy);
+                    allObjects.add(enemy);
                 }
                 if (b.hasFired()) {
                     GameObject ammo = MunitionFactory.getNewMunition(b.getGrid(), b.getPosition(), b);

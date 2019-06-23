@@ -15,8 +15,8 @@ public class MunitionFactory {
 
     public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Plane plane) {
 
-        int bulletCol = planePosition.getCol();
-        int bulletRow = planePosition.getRow();
+        int bulletCol = planePosition.getCol() + 4;
+        int bulletRow = planePosition.getRow() + 4;
 
         int rng = (int) (Math.random() * MunitionType.values().length);
 
@@ -35,7 +35,7 @@ public class MunitionFactory {
         if (plane instanceof EnemyPlane) {
             return Directions.DOWN_ENEMY;
         }
-        return Directions.UP;
+        return Directions.UP_BULLET;
     }
 
 }
