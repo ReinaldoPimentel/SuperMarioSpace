@@ -5,9 +5,13 @@ public enum EnemyFlyPath {
 
     private int translation;
 
+
     EnemyFlyPath(int translation){
         this.translation = translation;
+
     }
+
+
 
     public int getTranslation() {
         return translation;

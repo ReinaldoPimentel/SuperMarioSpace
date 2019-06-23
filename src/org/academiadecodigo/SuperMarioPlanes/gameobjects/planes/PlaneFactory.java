@@ -1,24 +1,27 @@
 package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
-import org.academiadecodigo.SuperMarioPlanes.gfx.PositionAndMovementOnSimpleGfxAirArena;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
+import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class PlaneFactory {
+
+    private static int row  = 0;
 
     public PlaneFactory(){
 
     }
 
-    public static Plane getNewPlane(PositionAndMovementOnSimpleGfxAirArena initPlanePos){
+    public static EnemyPlane getNewPlane(SimpleGfxAirArena initPlanePos){
 
-        int rng = (int) (Math.random() * EnemyType.values().length);
+        Position pos = new Position(getInXPos(), row, initPlanePos, "resources/Enemy.png");
 
-        EnemyType enemyType = EnemyType.values()[rng];
+         return new EnemyPlane(initPlanePos, pos, Directions.DOWN);
+    }
 
-        EnemyFlyPath enemyFlyPath = EnemyFlyPath.STRAIGHTDOWN;
-
-        //Plane enemyPlane = new EnemyPlane(enemyType, enemyFlyPath, initPlanePos);
-
-        return null;
+    public  static int getInXPos(){
+        int inXPos = (int) (Math.floor(Math.random()*(50 - 10) + 1) + 10);
+        return inXPos;
     }
     
 }

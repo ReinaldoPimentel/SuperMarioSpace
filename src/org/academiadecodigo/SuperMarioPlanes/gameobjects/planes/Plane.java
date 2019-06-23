@@ -24,18 +24,14 @@ public class Plane extends GameObject implements Killable {
     public void crash() {
         this.dead = true;
         hide();
-        explosion();
+        super.explosion();
 
     }
 
-    public void explosion() {
-        Picture bum = new Picture(0,0, "resources/bumbum.png");
-        bum.draw();
-    }
 
+    @Override
     public void hide() {
-       // image.delete();
-        super.getPosition().getImage().delete();
+       super.hide();
     }
 
     @Override
@@ -43,7 +39,7 @@ public class Plane extends GameObject implements Killable {
        health -= impact;
        if (health <= 0) {
            dead = true;
-           //hide();
+           hide();
        }
     }
 

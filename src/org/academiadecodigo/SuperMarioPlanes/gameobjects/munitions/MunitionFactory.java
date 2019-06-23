@@ -15,8 +15,8 @@ public class MunitionFactory {
 
     public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Plane plane) {
 
-        int bulletCol = planePosition.getCol() + 4;
-        int bulletRow = planePosition.getRow() - 5;
+        int bulletCol = planePosition.getCol();
+        int bulletRow = planePosition.getRow();
 
         int rng = (int) (Math.random() * MunitionType.values().length);
 

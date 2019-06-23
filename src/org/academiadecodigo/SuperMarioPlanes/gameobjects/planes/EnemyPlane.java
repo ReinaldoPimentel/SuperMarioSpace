@@ -36,9 +36,9 @@ public class EnemyPlane extends Plane {
     }
 
     public void move(){
-        if (super.getPosition().getRow() == super.getGrid().getHeight() || super.getPosition().getRow() == 0){
+       /* if (super.getPosition().getRow() == super.getGrid().getHeight() || super.getPosition().getRow() == 0){
             super.hide();
-        }
+        }*/
         super.getPosition().moveInDirection(direction, 1);
 
     }

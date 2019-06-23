@@ -3,6 +3,7 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class GameObject {
     private boolean Hide;
@@ -29,6 +30,7 @@ public abstract class GameObject {
         this.width = position.getImageWidth();
         this.height = position.getImageHeigth();
         this.grid = grid;
+        this.Hide = false;
     }
 
     public Position getHitPosition(){
@@ -72,6 +74,10 @@ public abstract class GameObject {
         return Hide;
     }
 
+    public void explosion() {
+        Picture bum = new Picture(0,0, "resources/bumbum.png");
+        bum.draw();
+    }
     /* public Picture getImage() {
         return image;
     }*/
