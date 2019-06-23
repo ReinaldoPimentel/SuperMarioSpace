@@ -15,8 +15,8 @@ public class MunitionFactory {
 
     public static Munition getNewMunition(SimpleGfxAirArena arena, Position planePosition, Plane plane) {
 
-        int bulletCol = planePosition.getCol() + 4;
-        int bulletRow = planePosition.getRow() - 1;
+        int bulletCol = planePosition.getCol();
+        int bulletRow = planePosition.getRow();
 
         int rng = (int) (Math.random() * MunitionType.values().length);
 
@@ -25,7 +25,7 @@ public class MunitionFactory {
        // MunitionPath munitionPath = MunitionPath.STRAIGHTDOWN;
 
 
-        Munition ammo = new Munition(arena, arena.makeGridPosition(bulletCol, bulletRow, "resources/fireball.png"), munitionType, choosePath(plane));
+        Munition ammo = new Munition(arena, arena.makeGridPosition(bulletCol, bulletRow, "resources/fireball.png"), munitionType, choosePath(plane), plane);
         ammo.move();
         return ammo;
 
@@ -33,7 +33,7 @@ public class MunitionFactory {
 
     private static Directions choosePath(Object plane) {
         if (plane instanceof EnemyPlane) {
-            return Directions.DOWN;
+            return Directions.DOWN_ENEMY;
         }
         return Directions.UP;
     }

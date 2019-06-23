@@ -2,8 +2,6 @@ package org.academiadecodigo.SuperMarioPlanes.gameobjects.planes;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.Killable;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.Munition;
-import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -12,6 +10,7 @@ public class Plane extends GameObject implements Killable {
 
     private int health = 1;
     private boolean dead = false;
+    private boolean fired;
     //private AirArena airArena;
     //private Picture image;
 
@@ -25,18 +24,14 @@ public class Plane extends GameObject implements Killable {
     public void crash() {
         this.dead = true;
         hide();
-        explosion();
+        super.explosion();
 
     }
 
-    public void explosion() {
-        Picture bum = new Picture(0,0, "resources/bumbum.png");
-        bum.draw();
-    }
 
+    @Override
     public void hide() {
-       // image.delete();
-        super.getImage().delete();
+       super.hide();
     }
 
     @Override
@@ -44,7 +39,7 @@ public class Plane extends GameObject implements Killable {
        health -= impact;
        if (health <= 0) {
            dead = true;
-           //hide();
+           hide();
        }
     }
 
@@ -53,9 +48,23 @@ public class Plane extends GameObject implements Killable {
         return dead;
     }
 
-    public Munition shoot(){
-        return MunitionFactory.getNewMunition(super.getGrid(),super.getPosition(), this);
+    public void shoot(){
+        fired();
     }
+
+
+    public void fired(){
+        fired = true;
+    }
+
+    public boolean hasFired() {
+        return fired;
+    }
+
+    public void reset_fired() {
+        fired = false;
+    }
+
 /*
     public void setAirArena(AirArena arena){
         airArena = arena;

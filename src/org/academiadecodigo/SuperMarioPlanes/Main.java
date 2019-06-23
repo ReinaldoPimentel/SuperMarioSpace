@@ -1,11 +1,16 @@
 package org.academiadecodigo.SuperMarioPlanes;
 
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.GameObject;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.IsAHit;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.Munition;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.munitions.MunitionFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.EnemyPlane;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.Plane;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlaneFactory;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.planes.PlayerPlane;
+import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Directions;
 import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 
@@ -14,18 +19,22 @@ public class Main {
 
         SimpleGfxAirArena arena = new SimpleGfxAirArena();
         arena.init();
-        Picture a = new Picture(10, 10, "resources/fireball.png");
-        a.draw();
         PlayerPlane b = new PlayerPlane(arena, arena.makeGridPosition(25, 65, "resources/plani.png"));
-        EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/plani.png"));
-        LinkedList bullets = new LinkedList();
+       // EnemyPlane enemyPlane = new EnemyPlane(arena, arena.makeGridPosition(25, 15, "resources/Enemy.png"), Directions.DOWN);
 
-        GameObject[] array = {enemyPlane};
-        System.out.println(b.getPosition().getCol());
+
+        IsAHit isThereAColission = new IsAHit();
+
+        //LinkedList playerBullets = new LinkedList();
+        //LinkedList planes = new LinkedList();
+        //planes.add(b);
+
+        LinkedList allObjects = new LinkedList();
+
+        allObjects.add(b);
+       // allObjects.add(enemyPlane);
 
         Position startPoint = b.getPosition();
-
-      // Munition munition = new Munition(arena, startPoint, MunitionType.FIREBALL, Directions.UP);
 
 
         while (true) {
@@ -33,22 +42,76 @@ public class Main {
             try {
                 Thread.sleep(40);
                 arena.move();
-                a.translate(0, 2);
-              //  munition.move();
+
+                if (Math.random() < 0.1) {
+
+                    EnemyPlane enemy = PlaneFactory.getNewPlane(arena);
+
+                   allObjects.add(enemy);
+                }
+                if (b.hasFired()) {
+                    GameObject ammo = MunitionFactory.getNewMunition(b.getGrid(), b.getPosition(), b);
+
+                    //playerBullets.add(ammo);
+                    allObjects.add(ammo);
+
+                    b.reset_fired();
+                }
+                for (int i = 0; i < allObjects.size(); i++) {
+                    boolean isToRemove = false;
 
 
+                    if (allObjects.get(i) instanceof Munition) {
+                        Munition object = (Munition) allObjects.get(i);
+                        if (!object.isHide()) {
+                            object.move();
+                        } else {
+                            isToRemove = true;
+                        }
+
+                    }
+
+                    if (allObjects.get(i) instanceof EnemyPlane) {
+                        EnemyPlane object = (EnemyPlane) allObjects.get(i);
+                        // PARA ELIMINAR AS BARRAS DE COMENTARIO
+                        if (!object.isHide()) {
+                            object.move();
+                            object.shoot();
+                            System.out.println(object.isDead());
+                        } else {
+                            System.out.println("is dead");
+                            isToRemove = true;
+                        }
+
+                        if (object.hasFired()) {
+                            GameObject ammo = MunitionFactory.getNewMunition(object.getGrid(), object.getPosition(), object);
+                            allObjects.add(ammo);
+                            object.reset_fired();
+                        }
+
+                        // PARA ELIMINAR AS BARRAS DO COMENTARIO pois impede o enemy plane de andar!!!!
+                        // object.move();
+                    }
+
+                    if (isToRemove) {
+                        allObjects.remove(allObjects.get(i));
+
+                    }
+
+                }
+
+                isThereAColission.detected(allObjects);
 
 
-             //   System.out.println(IsAHit.detected(b,array));
+                //   System.out.println(IsAHit.detected(b,array));
             } catch (InterruptedException e) {
                 //e.printStackTrace();
             }
 
 
-            while (b.isMoving()) {
+            if (b.isMoving()) {
                 b.move();
                 arena.move();
-                a.translate(0, 2);
                 //System.out.println(b.getPosition().getCol() + " - " + b.getPosition().getRow());
 
                 try {
@@ -59,6 +122,8 @@ public class Main {
 
             }
 
+
         }
     }
+
 }
