@@ -6,7 +6,7 @@ import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class PlaneFactory {
 
-    private static int row  = 0;
+    private static int row  = -20;
 
     public PlaneFactory(){
 
@@ -16,11 +16,11 @@ public class PlaneFactory {
 
         Position pos = new Position(getInXPos(), row, initPlanePos, "resources/Enemy.png");
 
-         return new EnemyPlane(initPlanePos, pos, Directions.DOWN);
+         return new EnemyPlane(initPlanePos, pos, Directions.DOWN_ENEMY);
     }
 
     public  static int getInXPos(){
-        int inXPos = (int) (Math.floor(Math.random()*(50 - 10) + 1) + 10);
+        int inXPos = (int) (Math.floor(Math.random()*(50 + 1)));
         return inXPos;
     }
     
