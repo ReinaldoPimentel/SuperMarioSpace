@@ -16,7 +16,7 @@ public class PlaneFactory {
 
         Position pos = new Position(getInXPos(), row, initPlanePos, "resources/Enemy.png");
 
-         return new EnemyPlane(initPlanePos, pos, Directions.DOWN);
+         return new EnemyPlane(initPlanePos, pos, Directions.DOWN_ENEMY);
     }
 
     public  static int getInXPos(){

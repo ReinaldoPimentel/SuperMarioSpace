@@ -44,6 +44,8 @@ public class Position {
             case DOWN:
                 moveDown(dist);
                 break;
+            case DOWN_ENEMY:
+                moveDownEnemy(dist);
             case LEFT:
                 moveLeft(dist);
                 break;
@@ -73,6 +75,11 @@ public class Position {
         }
     }
 
+    private void moveDownEnemy(int dist) {
+            //int maxRowsDown = Math.min(getGrid().getRows() - (pos.getRow() + 1),dist);
+            setPos(getCol(), getRow() + dist);
+
+    }
     private void moveLeft(int dist) {
         if (getCol() > 0) {
             //int maxRowsLeft = Math.min(dist,pos.getCol());

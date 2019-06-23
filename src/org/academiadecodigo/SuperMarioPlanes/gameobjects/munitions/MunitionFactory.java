@@ -33,7 +33,7 @@ public class MunitionFactory {
 
     private static Directions choosePath(Object plane) {
         if (plane instanceof EnemyPlane) {
-            return Directions.DOWN;
+            return Directions.DOWN_ENEMY;
         }
         return Directions.UP;
     }
