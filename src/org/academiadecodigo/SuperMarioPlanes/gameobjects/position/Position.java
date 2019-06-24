@@ -84,6 +84,8 @@ public class Position {
     }
 
     private void moveDownEnemy(int dist) {
+
+
         //int maxRowsDown = Math.min(getGrid().getRows() - (pos.getRow() + 1),dist);
         setPos(getCol() + dist , getRow() + dist);
 

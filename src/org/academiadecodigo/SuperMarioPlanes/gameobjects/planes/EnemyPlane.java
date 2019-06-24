@@ -5,7 +5,6 @@ import org.academiadecodigo.SuperMarioPlanes.gameobjects.position.Position;
 import org.academiadecodigo.SuperMarioPlanes.gfx.SimpleGfxAirArena;
 
 public class EnemyPlane extends Plane {
-
     private EnemyType enemyType;
     private Directions direction;
   //  private EnemyFlyPath enemyFlyPath;
@@ -15,6 +14,7 @@ public class EnemyPlane extends Plane {
     public EnemyPlane(SimpleGfxAirArena grid, Position position, Directions directions){
         super(grid, position);
         this.direction = directions;
+
       //  this.enemyType = enemyType;
      //   this.enemyFlyPath = enemyFlyPath;
 
@@ -42,6 +42,7 @@ public class EnemyPlane extends Plane {
         super.getPosition().moveInDirection(direction, 1);
 
     }
+
 
 
    /* public SimpleGfxAirArena getGrid() {

@@ -75,6 +75,10 @@ public class IsAHit {
 
                 }
 
+                if (obj1 instanceof EnemyPlane && obj2 instanceof EnemyPlane) {
+
+                }
+
                 if (i != j) {
 
                     int xOfObj2 = obj2.getPosition().getCol();
@@ -99,6 +103,10 @@ public class IsAHit {
 
                     if ((totalHeightOfBox < totalHeight && totalWidthOfBox < totalWidth)) {
 
+
+                        if (obj1 instanceof EnemyPlane && obj2 instanceof EnemyPlane) {
+                            break;
+                        }
                         //Hit = true;
                         obj1.hide();
                         // obj1.explosion();
