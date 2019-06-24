@@ -42,7 +42,7 @@ public class Game {
             score.grow(100, 25);
             score.draw();
             int diffic = (int) (Math.random() * 100);
-            if (counter == 10) {
+            if (counter == 15) {
                 levelDiff += 1;
 
             } else if (counter == 5) {
